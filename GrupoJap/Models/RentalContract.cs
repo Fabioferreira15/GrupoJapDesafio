@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+using GrupoJap.Validations;
 
 namespace GrupoJap.Models
 {
@@ -16,10 +17,12 @@ namespace GrupoJap.Models
 
         [Required(ErrorMessage = "Indique a data de inicio do contrato!")]
         [DataType(DataType.Date)]
+        [StartDateValidation]
         public DateTime StartDate { get; set; }
 
         [Required(ErrorMessage = "Indique a data de fim do contrato!")]
         [DataType(DataType.Date)]
+        [EndDateValidation]
         public DateTime EndDate { get; set; }
 
         [Required(ErrorMessage = "Indique a quilometragem inicial!")]
