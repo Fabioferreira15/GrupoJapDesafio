@@ -1,0 +1,95 @@
+﻿@model List<Client>
+@{
+
+
+}
+
+<div class="container">
+
+	<div class="d-flex justify-content-between align-items-center mb-4">
+		<h1>Lista de clientes</h1>
+		<a class="btn btn-success mx-5" asp-controller="Client" asp-action="Register">Registar novo Cliente</a>
+	</div>
+
+
+    @if (Model == null || !Model.Any())
+    {
+        <div class="alert alert-warning" role="alert">
+            Nenhum cliente encontrado!
+        </div>
+    }
+    else
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Número Telemovel</th>
+                    <th scope="col">Carta de condução</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var client in Model)
+                {
+                    <tr>
+                        <th scope="row">@client.Name</th>
+                        <th scope="row">@client.Email</th>
+                        <th scope="row">@client.PhoneNumber</th>
+                        <th scope="row">@client.DrivingLicense</th>
+
+                        <td>
+                            <a asp-controller="Client" asp-action="Edit" asp-route-id="@client.ClientId" class="btn btn-warning mx-2">Editar</a>
+                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal" data-id="@client.ClientId">
+                                Apagar
+                            </button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+
+
+
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="deleteModalLabel">Tens a certeza que queres apagar?</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Esta ação é irreversível. Tens a certeza?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <form id="deleteForm" method="post" asp-controller="Client" asp-action="Delete">
+                    <input type="hidden" id="deleteId" name="id" />
+                    <button type="submit" class="btn btn-danger">Apagar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+
+        const deleteModal = document.getElementById('deleteModal')
+
+        deleteModal.addEventListener('show.bs.modal', (event) => {
+            const button = event.relatedTarget;
+            const id = button.getAttribute('data-id')
+            const input =deleteModal.querySelector("#deleteId")
+            input.value = id
+        })
+
+    </script>
+}

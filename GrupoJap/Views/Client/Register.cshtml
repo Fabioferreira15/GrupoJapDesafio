@@ -1,0 +1,36 @@
+﻿@model GrupoJap.Models.Client
+@{
+}
+<h2>Registar CLientes</h2>
+
+
+<form method="post" asp-controller="Client" asp-action="Register">
+    <div class="mb-3">
+        <label for="name" class="form-label">Nome</label>
+        <input type="text" class="form-control" id="name" asp-for="Name" placeholder="Indique o nome do cliente">
+        <span class="text-danger" asp-validation-for="Name"></span>
+    </div>
+
+    <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" id="email" asp-for="Email" placeholder="Indique o email do cliente">
+        <span class="text-danger" asp-validation-for="Email"></span>
+    </div>
+
+    <div class="mb-3">
+        <label for="phoneNumber" class="form-label">Numero de telemovel</label>
+        <input type="text" class="form-control" id="phoneNumber" asp-for="PhoneNumber" placeholder="Indique o número de telemovel do cliente">
+        <span class="text-danger" asp-validation-for="PhoneNumber"></span>
+    </div>
+
+
+    <div class="mb-3">
+        <label for="drivingLicense" class="form-label">Carta de condução</label>
+        <input type="text" class="form-control" id="drivingLicense" asp-for="DrivingLicense" placeholder="Indique o numero da carta de condução">
+        <span class="text-danger" asp-validation-for="DrivingLicense"></span>
+    </div>
+
+    <button type="submit" class="btn btn-success">Registar</button>
+    <a class="btn btn-primary " asp-controller="Client" asp-action="Index">Voltar</a>
+</form>
+
