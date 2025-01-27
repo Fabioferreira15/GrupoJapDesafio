@@ -1,0 +1,52 @@
+﻿@model GrupoJap.Models.Vehicle
+@{
+    ViewData["Title"] = "Register Vehicle";
+}
+
+<h2>Editar Veículo</h2>
+
+<form method="post" asp-controller="Vehicle" asp-action="Edit">
+
+    <input type="hidden" asp-for="VehicleId" />
+
+    <div class="mb-3">
+        <label for="brand" class="form-label">Marca</label>
+        <input type="text" class="form-control" id="brand" asp-for="Brand" placeholder="Indique a marca do veículo">
+        <span class="text-danger" asp-validation-for="Brand"></span>
+    </div>
+
+    <div class="mb-3">
+        <label for="model" class="form-label">Modelo</label>
+        <input type="text" class="form-control" id="model" asp-for="Model" placeholder="Indique o modelo do veículo">
+        <span class="text-danger" asp-validation-for="Model"></span>
+    </div>
+
+    <div class="mb-3">
+        <label for="licensePlate" class="form-label">Matrícula</label>
+        <input type="text" class="form-control" id="licensePlate" asp-for="LicensePlate" placeholder="Indique a matrícula do veículo">
+        <span class="text-danger" asp-validation-for="LicensePlate"></span>
+    </div>
+
+
+
+    <div class="mb-3">
+        <label for="manufacturingYear" class="form-label">Ano de fabrico</label>
+        <input type="number" class="form-control" id="manufacturingYear" asp-for="ManufacturingYear" placeholder="Indique o ano de fabrico do veículo">
+        <span class="text-danger" asp-validation-for="ManufacturingYear"></span>
+    </div>
+
+    <div class="mb-3">
+        <label for="fuelType" class="form-label">Tipo de combustível</label>
+        <select class="form-control" asp-for="FuelType">
+            <option value="">Selecione o tipo de combustível</option>
+            <option value="Gasolina">Gasolina</option>
+            <option value="Gasóleo">Gasóleo</option>
+            <option value="Elétrico">Elétrico</option>
+            <option value="Híbrido">Híbrido</option>
+
+        </select>
+        <span class="text-danger" asp-validation-for="FuelType"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Editar</button>
+</form>

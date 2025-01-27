@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using GrupoJap.Enums;
+using GrupoJap.Validations;
 using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 
 
@@ -24,6 +25,7 @@ namespace GrupoJap.Models
         public string LicensePlate { get; set; }
 
         [Required(ErrorMessage = "Indique o ano da fabrico da viatura!")]
+        [ValidYearRange(ErrorMessage = "O ano de fabrico deve estra entre 1900 e o ano atual")]
         public int ManufacturingYear { get; set; }
 
         [Required(ErrorMessage = "Indique o tipo de combustível da viatura!")]
