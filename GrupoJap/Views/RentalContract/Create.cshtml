@@ -5,26 +5,26 @@
 
 
 <form method="post" asp-controller="RentalContract" asp-action="Create">
-    <div class="form-group">
+    <div class="form-group mb-3">
         <label asp-for="ClientId" class="control-label">Cliente</label>
-        <select asp-for="ClientId" class="form-control" asp-items="ViewBag.ClientId"></select>
+        <select asp-for="ClientId" class="form-select" asp-items="ViewBag.ClientId"></select>
     </div>
-    <div class="form-group">
+    <div class="form-group mb-3">
         <label asp-for="VehicleId" class="control-label">Veiculo</label>
-        <select asp-for="VehicleId" class="form-control" asp-items="ViewBag.VehicleId"></select>
+        <select asp-for="VehicleId" class="form-select" asp-items="ViewBag.VehicleId"></select>
     </div>
-    <div class="form-group">
-        <label asp-for="StartDate" class="control-label"></label>
+    <div class="form-group mb-3">
+        <label asp-for="StartDate" class="control-label">Data de inicio</label>
         <input asp-for="StartDate" class="form-control" />
         <span asp-validation-for="StartDate" class="text-danger"></span>
     </div>
-    <div class="form-group">
-        <label asp-for="EndDate" class="control-label"></label>
+    <div class="form-group mb-3">
+        <label asp-for="EndDate" class="control-label"> Data de fim</label>
         <input asp-for="EndDate" class="form-control" />
         <span asp-validation-for="EndDate" class="text-danger"></span>
     </div>
-    <div class="form-group">
-        <label asp-for="InitialKilometers" class="control-label"></label>
+    <div class="form-group mb-3">
+        <label asp-for="InitialKilometers" class="control-label">Quilometragem inicial</label>
         <input asp-for="InitialKilometers" class="form-control" />
         <span asp-validation-for="InitialKilometers" class="text-danger"></span>
     </div>

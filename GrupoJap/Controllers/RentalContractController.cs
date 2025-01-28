@@ -68,6 +68,8 @@ namespace GrupoJap.Controllers
                     }
 
                     await _db.SaveChangesAsync();
+
+                    TempData["Message"] = "Contrato de aluguer registado com sucesso!";
                     return RedirectToAction("Index");
                 }
 
@@ -113,6 +115,8 @@ namespace GrupoJap.Controllers
 
                 _db.RentalContracts.Remove(rentalContract);
                 await _db.SaveChangesAsync();
+
+                TempData["Message"] = "Contrato de aluguer eliminado com sucesso!";
                 return RedirectToAction("Index");
 
             }

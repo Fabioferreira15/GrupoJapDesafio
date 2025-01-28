@@ -46,6 +46,9 @@ namespace GrupoJap.Controllers
                 {
                     _db.Clients.Add(client);
                     await _db.SaveChangesAsync();
+
+                    TempData["Message"] = "Cliente registado com sucesso!";
+
                     return RedirectToAction("Index");
                 }
 
@@ -76,6 +79,8 @@ namespace GrupoJap.Controllers
 
                 _db.Clients.Remove(client);
                 await _db.SaveChangesAsync();
+
+                TempData["Message"] = "Cliente eliminado com sucesso!";
                 return RedirectToAction("Index");
             }
             catch (Exception ex)
@@ -136,6 +141,9 @@ namespace GrupoJap.Controllers
                 {
                     _db.Clients.Update(existingClient);
                     await _db.SaveChangesAsync();
+
+                    TempData["Message"] = "Cliente editado com sucesso!";
+
                     return RedirectToAction("Index");
                 }
 

@@ -42,6 +42,8 @@ namespace GrupoJap.Controllers
                 {
                     _db.Vehicles.Add(vehicle);
                     await _db.SaveChangesAsync();
+
+                    TempData["Message"] = "Viatura registada com sucesso!";
                     return RedirectToAction("Index");
                 }
 
@@ -71,6 +73,8 @@ namespace GrupoJap.Controllers
 
                 _db.Vehicles.Remove(vehicle);
                 await _db.SaveChangesAsync();
+
+                TempData["Message"] = "Viatura eliminada com sucesso!";
                 return RedirectToAction("Index");
 
 
@@ -130,6 +134,8 @@ namespace GrupoJap.Controllers
                 {
                     _db.Vehicles.Update(existingVehicle);
                     await _db.SaveChangesAsync();
+
+                    TempData["Message"] = "Viatura editada com sucesso!";
                     return RedirectToAction("Index");
                 }
 

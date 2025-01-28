@@ -12,6 +12,14 @@
     </div>
 
 
+    @if (TempData["Message"] != null)
+    {
+        <div class="alert alert-success" id="tempDataMessage" role="alert">
+            @TempData["Message"]
+        </div>
+    }
+
+
     @if (Model == null || !Model.Any())
     {
         <div class="alert alert-warning" role="alert">
@@ -20,7 +28,7 @@
     }
     else
     {
-        <table class="table">
+        <table class="table table-hover">
             <thead>
                 <tr>
                     <th scope="col">Cliente</th>
@@ -35,11 +43,11 @@
                 @foreach (var contract in Model)
                 {
                     <tr>
-                        <th scope="row">@contract.Client.Name | @contract.Client.DrivingLicense</th>
-                        <th scope="row">@contract.Vehicle.Brand @contract.Vehicle.Model | @contract.Vehicle.LicensePlate </th>
-                        <th scope="row">@contract.StartDate</th>
-                        <th scope="row">@contract.EndDate</th>
-                        <th scope="row">@contract.InitialKilometers</th>
+                        <td scope="row">@contract.Client.Name | @contract.Client.DrivingLicense</td>
+                        <td scope="row">@contract.Vehicle.Brand @contract.Vehicle.Model | @contract.Vehicle.LicensePlate </td>
+                        <td scope="row">@contract.StartDate.ToShortDateString()</td>
+                        <td scope="row">@contract.EndDate.ToShortDateString()</td>
+                        <td scope="row">@contract.InitialKilometers</td>
 
                         <td>
                             <a asp-controller="RentalContract" asp-action="Edit" asp-route-id="@contract.RentalContractId" class="btn btn-warning mx-2">Editar</a>
@@ -82,16 +90,5 @@
 </div>
 
 @section Scripts {
-    <script>
-
-        const deleteModal = document.getElementById('deleteModal')
-
-        deleteModal.addEventListener('show.bs.modal', (event) => {
-            const button = event.relatedTarget;
-            const id = button.getAttribute('data-id')
-            const input =deleteModal.querySelector("#deleteId")
-            input.value = id
-        })
-
-    </script>
+    <script src="~/js/site.js"></script>"
 }
