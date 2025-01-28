@@ -77,6 +77,10 @@ As principais tabelas da base de dados são:
    - `EndDate`: Data de fim do contrato.
    - `InitialKilometers`: Quilometragem inicial da viatura.
 
+
+![image](https://github.com/user-attachments/assets/44e0d184-e076-4f69-82bb-29b88a337b2e)
+
+
 ### Explicação sobre o uso do Enum para `FuelType`
 
 Optei por usar um **enum** para o tipo de combustível (`FuelType`) das viaturas em vez de criar uma tabela separada, devido aos seguintes motivos:
