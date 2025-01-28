@@ -1,6 +1,6 @@
 ﻿@model GrupoJap.Models.Vehicle
 @{
-    ViewData["Title"] = "Register Vehicle";
+    ViewData["Title"] = "Registar Veiculo";
 }
 
 <h2>Editar Veículo</h2>
@@ -48,5 +48,6 @@
         <span class="text-danger" asp-validation-for="FuelType"></span>
     </div>
 
-    <button type="submit" class="btn btn-primary">Editar</button>
+    <button type="submit" class="btn btn-success">Editar</button>
+    <a class="btn btn-primary " asp-controller="Vehicle" asp-action="Index">Voltar</a>
 </form>

@@ -1,11 +1,16 @@
 ﻿@model GrupoJap.Models.RentalContract
+
 @{
-    ViewData["Title"] = "Criar contrato";
+	ViewData["Title"] = "Editar Contrato";
 }
-<h2>Registar Contrato</h2>
 
 
-<form method="post" asp-controller="RentalContract" asp-action="Create">
+<h2>Editar Contrato</h2>
+
+<form method="post" asp-controller="RentalContract" asp-action="Edit">
+
+    <input type="hidden" asp-for="RentalContractId" />
+
     <div class="form-group mb-3">
         <label asp-for="ClientId" class="control-label">Cliente</label>
         <select asp-for="ClientId" class="form-select" asp-items="ViewBag.ClientId"></select>
@@ -30,7 +35,7 @@
         <span asp-validation-for="InitialKilometers" class="text-danger"></span>
     </div>
 
-    <button type="submit" class="btn btn-success">Registar</button>
+    <button type="submit" class="btn btn-success">Editar</button>
     <a class="btn btn-primary " asp-controller="RentalContract" asp-action="Index">Voltar</a>
 </form>
 
