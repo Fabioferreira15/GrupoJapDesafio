@@ -118,7 +118,7 @@ Primeiro, clone o repositório do projeto para a sua máquina local. Abra o term
 git clone https://github.com/Fabioferreira15/GrupoJapDesafio
 ```
 
-### Passo 1: Configurar a Base de Dados
+### Passo 2: Configurar a Base de Dados
 
 O projeto utiliza o SQL Server como base de dados. Para configurar a base de dados, siga os passos abaixo:
 
@@ -130,39 +130,19 @@ O projeto utiliza o SQL Server como base de dados. Para configurar a base de dad
     "DefaultConnection": "Server=SEU_SERVIDOR_;Database=VehicleRentalDB;Trusted_Connection=True;MultipleActiveResultSets=true"
 }
 ```
-3. Abra o terminal ou prompt de comando e execute o comando abaixo para criar a base de dados:
-```bash
-dotnet ef database update
-```
 
-### Passo 3: Restaurar as Dependências do Projeto
+### Passo 3: Criar a migração
 
-Para restaurar as dependências do projeto, abra o terminal ou prompt de comando na pasta raiz do projeto e execute o comando abaixo:
-```bash
-dotnet restore
-```
-
-### Passo 4: Criar a migração
-
-Para criar a migração, abra o terminal ou prompt de comando na pasta raiz do projeto e execute o comando abaixo:
-```bash
-dotnet ef migrations add InitialCreate
-```
-Ou se usar o Gerenciador de Pacotes do NuGet, execute o comando abaixo:
+Para criar a migração, abra o Gerenciador de Pacotes do NuGet, execute o comando abaixo:
 ```bash
 Add-Migration InitialCreate
 ```
-### Passo 5: Atualizar a base de dados
+### Passo 4: Atualizar a base de dados
 
 Para aplicar a migração e atualizar a base de dados, execute o comando abaixo:
 ```bash
-dotnet ef database update
-```
-Ou se usar o Gerenciador de Pacotes do NuGet, execute o comando abaixo:
-```bash
 Update-Database
 ```
-
 
 ### Passo 5: Executar o Projeto
 
